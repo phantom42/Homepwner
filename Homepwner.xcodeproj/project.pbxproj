@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF1965A8165B2EF1009AEAC4 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1965A7165B2EF1009AEAC4 /* BNRItemStore.m */; };
+		EF1965AB165B372E009AEAC4 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1965AA165B372E009AEAC4 /* BNRItem.m */; };
 		EF8F58961655F7160018282F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8F58951655F7160018282F /* UIKit.framework */; };
 		EF8F58981655F7160018282F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8F58971655F7160018282F /* Foundation.framework */; };
 		EF8F589A1655F7160018282F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8F58991655F7160018282F /* CoreGraphics.framework */; };
@@ -16,9 +18,14 @@
 		EF8F58A81655F7160018282F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8F58A71655F7160018282F /* Default.png */; };
 		EF8F58AA1655F7160018282F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8F58A91655F7160018282F /* Default@2x.png */; };
 		EF8F58AC1655F7160018282F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8F58AB1655F7160018282F /* Default-568h@2x.png */; };
+		EF8F58B41655F8A80018282F /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8F58B31655F8A80018282F /* ItemsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF1965A6165B2EF1009AEAC4 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
+		EF1965A7165B2EF1009AEAC4 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		EF1965A9165B372E009AEAC4 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
+		EF1965AA165B372E009AEAC4 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		EF8F58911655F7150018282F /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8F58951655F7160018282F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EF8F58971655F7160018282F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -32,6 +39,8 @@
 		EF8F58A71655F7160018282F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EF8F58A91655F7160018282F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EF8F58AB1655F7160018282F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EF8F58B21655F8A80018282F /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
+		EF8F58B31655F8A80018282F /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +87,15 @@
 		EF8F589B1655F7160018282F /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				EF1965A9165B372E009AEAC4 /* BNRItem.h */,
+				EF1965AA165B372E009AEAC4 /* BNRItem.m */,
+				EF1965A6165B2EF1009AEAC4 /* BNRItemStore.h */,
+				EF1965A7165B2EF1009AEAC4 /* BNRItemStore.m */,
 				EF8F58A41655F7160018282F /* HomepwnerAppDelegate.h */,
 				EF8F58A51655F7160018282F /* HomepwnerAppDelegate.m */,
 				EF8F589C1655F7160018282F /* Supporting Files */,
+				EF8F58B21655F8A80018282F /* ItemsViewController.h */,
+				EF8F58B31655F8A80018282F /* ItemsViewController.m */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -167,6 +182,9 @@
 			files = (
 				EF8F58A21655F7160018282F /* main.m in Sources */,
 				EF8F58A61655F7160018282F /* HomepwnerAppDelegate.m in Sources */,
+				EF8F58B41655F8A80018282F /* ItemsViewController.m in Sources */,
+				EF1965A8165B2EF1009AEAC4 /* BNRItemStore.m in Sources */,
+				EF1965AB165B372E009AEAC4 /* BNRItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +293,7 @@
 				EF8F58B11655F7160018282F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
