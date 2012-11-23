@@ -33,7 +33,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return (section == 0) ? [expensiveItems count] : [inexpensiveItems count] ;
+    return (section == 0) ? [expensiveItems count] + 1 : [inexpensiveItems count] + 1 ;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,11 +51,21 @@
     // not totally sure why, but putting the cell setText outside of the conditional doesn't work
     // throws unused/undeclared variable errors
     if ([indexPath section] == 0) {
-        BNRItem *theItem = [expensiveItems objectAtIndex:[indexPath row]];
-        [[cell textLabel] setText:[theItem description]] ;
+        if ([indexPath row] < [expensiveItems count]) {
+            BNRItem *theItem = [expensiveItems objectAtIndex:[indexPath row]];
+            [[cell textLabel] setText:[theItem description]] ;
+        } else {
+            [[cell textLabel] setText:@"No more items!"] ;
+        }
+        
     } else {
-        BNRItem *theItem = [inexpensiveItems objectAtIndex:[indexPath row]];
-        [[cell textLabel] setText:[theItem description]] ;
+        if ([indexPath row] < [inexpensiveItems count]) {
+            BNRItem *theItem = [inexpensiveItems objectAtIndex:[indexPath row]];
+            [[cell textLabel] setText:[theItem description]] ;
+        } else {
+            [[cell textLabel] setText:@"No more items!"];
+        }
+        
     }
     
     return cell ;
