@@ -21,6 +21,9 @@
             [[BNRItemStore sharedStore] createItem] ;
         }
     }
+    inexpensiveItems = [self getInexpensiveItems];
+    expensiveItems = [self getExpensiveItems] ;
+    NSLog(@"inexpensive: %@",inexpensiveItems) ;
     return self ;
 }
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,7 +33,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count] ;
+    return (section == 0) ? [expensiveItems count] : [inexpensiveItems count] ;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -45,13 +48,32 @@
                 reuseIdentifier:@"UITableViewCell"];
     }
     
-    // set the text on the cell with the description of the item
-    // that is at the nth index of items, where n = row this cell
-    // will appear in on the tableview
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
-    
-    [[cell textLabel] setText:[p description]] ;
+    // not totally sure why, but putting the cell setText outside of the conditional doesn't work
+    // throws unused/undeclared variable errors
+    if ([indexPath section] == 0) {
+        BNRItem *theItem = [expensiveItems objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[theItem description]] ;
+    } else {
+        BNRItem *theItem = [inexpensiveItems objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[theItem description]] ;
+    }
     
     return cell ;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2 ;
+}
+- (NSArray *)getInexpensiveItems
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"valueInDollars <= 50"];
+    NSArray *items = [[[BNRItemStore sharedStore] allItems] filteredArrayUsingPredicate:predicate];
+    return items ;
+}
+- (NSArray *)getExpensiveItems
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"valueInDollars > 50"];
+    NSArray *items = [[[BNRItemStore sharedStore] allItems] filteredArrayUsingPredicate:predicate];
+    return items ;
 }
 @end
