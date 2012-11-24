@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EF1965A8165B2EF1009AEAC4 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1965A7165B2EF1009AEAC4 /* BNRItemStore.m */; };
 		EF1965AB165B372E009AEAC4 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1965AA165B372E009AEAC4 /* BNRItem.m */; };
+		EF1965AE16608C3C009AEAC4 /* tableview.png in Resources */ = {isa = PBXBuildFile; fileRef = EF1965AC16608C3C009AEAC4 /* tableview.png */; };
+		EF1965AF16608C3C009AEAC4 /* tableview2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF1965AD16608C3C009AEAC4 /* tableview2x.png */; };
 		EF8F58961655F7160018282F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8F58951655F7160018282F /* UIKit.framework */; };
 		EF8F58981655F7160018282F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8F58971655F7160018282F /* Foundation.framework */; };
 		EF8F589A1655F7160018282F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8F58991655F7160018282F /* CoreGraphics.framework */; };
@@ -26,6 +28,8 @@
 		EF1965A7165B2EF1009AEAC4 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
 		EF1965A9165B372E009AEAC4 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		EF1965AA165B372E009AEAC4 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
+		EF1965AC16608C3C009AEAC4 /* tableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableview.png; sourceTree = "<group>"; };
+		EF1965AD16608C3C009AEAC4 /* tableview2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableview2x.png; sourceTree = "<group>"; };
 		EF8F58911655F7150018282F /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8F58951655F7160018282F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EF8F58971655F7160018282F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +91,8 @@
 		EF8F589B1655F7160018282F /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				EF1965AC16608C3C009AEAC4 /* tableview.png */,
+				EF1965AD16608C3C009AEAC4 /* tableview2x.png */,
 				EF1965A9165B372E009AEAC4 /* BNRItem.h */,
 				EF1965AA165B372E009AEAC4 /* BNRItem.m */,
 				EF1965A6165B2EF1009AEAC4 /* BNRItemStore.h */,
@@ -170,6 +176,8 @@
 				EF8F58A81655F7160018282F /* Default.png in Resources */,
 				EF8F58AA1655F7160018282F /* Default@2x.png in Resources */,
 				EF8F58AC1655F7160018282F /* Default-568h@2x.png in Resources */,
+				EF1965AE16608C3C009AEAC4 /* tableview.png in Resources */,
+				EF1965AF16608C3C009AEAC4 /* tableview2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

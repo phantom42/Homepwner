@@ -47,12 +47,11 @@
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:@"UITableViewCell"];
     }
-    
-    // not totally sure why, but putting the cell setText outside of the conditional doesn't work
-    // throws unused/undeclared variable errors
+
     if ([indexPath section] == 0) {
         if ([indexPath row] < [expensiveItems count]) {
             BNRItem *theItem = [expensiveItems objectAtIndex:[indexPath row]];
+            [[cell textLabel] setFont:[UIFont systemFontOfSize:20]] ;
             [[cell textLabel] setText:[theItem description]] ;
         } else {
             [[cell textLabel] setText:@"No more items!"] ;
@@ -61,6 +60,7 @@
     } else {
         if ([indexPath row] < [inexpensiveItems count]) {
             BNRItem *theItem = [inexpensiveItems objectAtIndex:[indexPath row]];
+            [[cell textLabel] setFont:[UIFont systemFontOfSize:20]] ;
             [[cell textLabel] setText:[theItem description]] ;
         } else {
             [[cell textLabel] setText:@"No more items!"];
@@ -85,5 +85,26 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"valueInDollars > 50"];
     NSArray *items = [[[BNRItemStore sharedStore] allItems] filteredArrayUsingPredicate:predicate];
     return items ;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height ;
+    int numRows ;
+    if ([indexPath section] == 0) {
+        numRows = [expensiveItems count] ;
+    } else {
+        numRows = [inexpensiveItems count] ;
+    }
+    if ([indexPath row] < numRows) {
+        height = 60 ;
+    } else {
+        height = 44 ;
+    }
+    return height ;
+}
+- (void)viewDidLoad
+{
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableview.png"]] ;
+    [[self tableView] setBackgroundView:backgroundView];
 }
 @end
