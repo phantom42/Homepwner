@@ -74,4 +74,31 @@
     // height of the header should be determined by height of view in xib file
     return [[self headerView] bounds].size.height ;
 }
+- (IBAction)toggleEditingMode:(id)sender
+{
+    // if currently in editing mode...
+    if ([self isEditing]) {
+        //change text of button to inform user of state
+        [sender setTitle:@"Edit" forState:UIControlStateNormal] ;
+        // turn off editing mode
+        [self setEditing:NO animated:YES] ;
+    } else {
+        // change text of button to inform user of state
+        [sender setTitle:@"Done" forState:UIControlStateNormal] ;
+        // enter editing mode
+        [self setEditing:YES animated:YES] ;
+    }
+}
+- (IBAction)addNewItem:(id)sender
+{
+    // create a new BNRItem and add it to the store
+    BNRItem *newItem = [[BNRItemStore sharedStore] createItem] ;
+    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem] ;
+    
+    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0] ;
+    
+    // insert this new row into the table
+    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
+                            withRowAnimation:UITableViewRowAnimationTop] ;
+}
 @end
