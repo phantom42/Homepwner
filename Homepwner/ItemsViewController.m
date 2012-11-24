@@ -54,4 +54,24 @@
     
     return cell ;
 }
+- (UIView *)headerView
+{
+   // if we haven't loaded the headerview yet...
+    if (!headerView){
+        //load headerview.xib
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] ;
+    }
+    return headerView ;
+}
+
+// methods for UITableViewDelegate protocol
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sec
+{
+    return [self headerView] ;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sec
+{
+    // height of the header should be determined by height of view in xib file
+    return [[self headerView] bounds].size.height ;
+}
 @end

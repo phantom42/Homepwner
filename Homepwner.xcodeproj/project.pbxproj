@@ -19,6 +19,7 @@
 		EF8F58AA1655F7160018282F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8F58A91655F7160018282F /* Default@2x.png */; };
 		EF8F58AC1655F7160018282F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8F58AB1655F7160018282F /* Default-568h@2x.png */; };
 		EF8F58B41655F8A80018282F /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8F58B31655F8A80018282F /* ItemsViewController.m */; };
+		EF94DE021660956700A92B6F /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF94DE011660956700A92B6F /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		EF8F58AB1655F7160018282F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EF8F58B21655F8A80018282F /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		EF8F58B31655F8A80018282F /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		EF94DE011660956700A92B6F /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				EF8F58A51655F7160018282F /* HomepwnerAppDelegate.m */,
 				EF8F589C1655F7160018282F /* Supporting Files */,
 				EF8F58B21655F8A80018282F /* ItemsViewController.h */,
+				EF94DE011660956700A92B6F /* HeaderView.xib */,
 				EF8F58B31655F8A80018282F /* ItemsViewController.m */,
 			);
 			path = Homepwner;
@@ -170,6 +173,7 @@
 				EF8F58A81655F7160018282F /* Default.png in Resources */,
 				EF8F58AA1655F7160018282F /* Default@2x.png in Resources */,
 				EF8F58AC1655F7160018282F /* Default-568h@2x.png in Resources */,
+				EF94DE021660956700A92B6F /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
