@@ -43,6 +43,23 @@
 {
     [allItems removeObjectIdenticalTo:p];
 }
+- (void)moveItemAtIndex:(int)from
+                toIndex:(int)to
+{
+    if (from == to) {
+        return ;
+    }
+    // get pointer to object being moved so we can re-insert it
+    BNRItem *p = [allItems objectAtIndex:from] ;
+    
+    //remove p from array
+    [allItems removeObjectAtIndex:from] ;
+    
+    //insert p in array at new location
+    [allItems insertObject:p
+                   atIndex:to];
+    
+}
 
 + (id)allocWithZone:(NSZone *)zone
 {
