@@ -39,6 +39,10 @@
         sharedStore = [[super allocWithZone:nil] init] ;
     return sharedStore ;
 }
+- (void)removeItem:(BNRItem *)p
+{
+    [allItems removeObjectIdenticalTo:p];
+}
 
 + (id)allocWithZone:(NSZone *)zone
 {

@@ -17,9 +17,7 @@
     //call the super class initializer
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        for (int i = 0 ; i < 5 ; i++) {
-            [[BNRItemStore sharedStore] createItem] ;
-        }
+        
     }
     return self ;
 }
@@ -100,5 +98,20 @@
     // insert this new row into the table
     [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
                             withRowAnimation:UITableViewRowAnimationTop] ;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // if the table view is asking to commit a delete...
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        BNRItemStore *ps = [BNRItemStore sharedStore] ;
+        NSArray *items = [ps allItems] ;
+        BNRItem *p = [items objectAtIndex:[indexPath row]] ;
+        [ps removeItem:p] ;
+        
+        // also remove that row from the table view with an animation
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade] ;
+    }
 }
 @end
