@@ -28,14 +28,13 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count] ;
+    return [[[BNRItemStore sharedStore] allItems] count] + 1 ;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // check for a reusable cell. use that if one exists
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    
     // if no reusable cell of this type, create a new one
     if (!cell){
         cell = [[UITableViewCell alloc]
@@ -43,13 +42,12 @@
                 reuseIdentifier:@"UITableViewCell"];
     }
     
-    // set the text on the cell with the description of the item
-    // that is at the nth index of items, where n = row this cell
-    // will appear in on the tableview
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
-    
-    [[cell textLabel] setText:[p description]] ;
-    
+    if ([indexPath row] < [[[BNRItemStore sharedStore] allItems] count]) {
+        BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[p description]] ;
+    } else {
+        [[cell textLabel] setText:@"No more items!"] ;
+    }
     return cell ;
 }
 - (UIView *)headerView
@@ -120,9 +118,15 @@
 {
     [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
                                         toIndex:[destinationIndexPath row]] ;
+   
 }
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"Remove";
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return([indexPath row] < [[[BNRItemStore sharedStore] allItems] count]) ? YES : NO ;
+}
+
 @end
