@@ -128,5 +128,12 @@
 {
     return([indexPath row] < [[[BNRItemStore sharedStore] allItems] count]) ? YES : NO ;
 }
-
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return TRUE ;
+}
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    return ([proposedDestinationIndexPath row] < [[[BNRItemStore sharedStore] allItems] count]) ? proposedDestinationIndexPath : sourceIndexPath ;
+}
 @end
