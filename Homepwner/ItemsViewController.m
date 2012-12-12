@@ -121,4 +121,13 @@
     [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
                                         toIndex:[destinationIndexPath row]] ;
 }
+-(void)tableView:(UITableView *)aTableView
+    didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *detailViewController = [[DetailViewController alloc] init] ;
+    
+    //push it to the top of the navigation controllers stack
+    [[self navigationController] pushViewController:detailViewController
+                                           animated:YES];
+}
 @end
