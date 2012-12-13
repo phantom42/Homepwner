@@ -126,8 +126,19 @@
 {
     DetailViewController *detailViewController = [[DetailViewController alloc] init] ;
     
+    NSArray *items = [[BNRItemStore sharedStore] allItems] ;
+    BNRItem *selectedItem = [items objectAtIndex:[indexPath row]] ;
+    
+    //give detail view contoller a pointer to the item object in row
+    [detailViewController setItem:selectedItem] ;
+    
     //push it to the top of the navigation controllers stack
     [[self navigationController] pushViewController:detailViewController
                                            animated:YES];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated] ;
+    [[self tableView] reloadData] ;
 }
 @end
