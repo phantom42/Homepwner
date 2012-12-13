@@ -17,7 +17,20 @@
     //call the super class initializer
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
+        UINavigationItem *n = [self navigationItem] ;
         
+        [n setTitle:@"Homepwner"] ;
+        
+        // create a new bar button item that will send
+        // addNewItem: to ItemsViewController
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                target:self
+                                action:@selector(addNewItem:)] ;
+        //set this bar button item as the right item in the navigationItem
+        [[self navigationItem] setRightBarButtonItem:bbi] ;
+        
+        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]] ;
     }
     return self ;
 }
@@ -51,41 +64,6 @@
     [[cell textLabel] setText:[p description]] ;
     
     return cell ;
-}
-- (UIView *)headerView
-{
-   // if we haven't loaded the headerview yet...
-    if (!headerView){
-        //load headerview.xib
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil] ;
-    }
-    return headerView ;
-}
-
-// methods for UITableViewDelegate protocol
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sec
-{
-    return [self headerView] ;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sec
-{
-    // height of the header should be determined by height of view in xib file
-    return [[self headerView] bounds].size.height ;
-}
-- (IBAction)toggleEditingMode:(id)sender
-{
-    // if currently in editing mode...
-    if ([self isEditing]) {
-        //change text of button to inform user of state
-        [sender setTitle:@"Edit" forState:UIControlStateNormal] ;
-        // turn off editing mode
-        [self setEditing:NO animated:YES] ;
-    } else {
-        // change text of button to inform user of state
-        [sender setTitle:@"Done" forState:UIControlStateNormal] ;
-        // enter editing mode
-        [self setEditing:YES animated:YES] ;
-    }
 }
 - (IBAction)addNewItem:(id)sender
 {
