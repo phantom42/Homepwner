@@ -27,6 +27,7 @@
     [nameField setText:[item itemName]] ;
     [serialNumberField setText:[item serialNumber]] ;
     [valueField setText:[NSString stringWithFormat:@"%d",[item valueInDollars]]] ;
+    [valueField setKeyboardType:UIKeyboardTypeNumberPad] ;
     
     // create a nsdateformatter that will turn a date into a simple date string
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;
