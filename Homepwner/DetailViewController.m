@@ -19,6 +19,10 @@
 {
     [super viewDidLoad] ;
     [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]] ;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)] ;
+    [[self view] addGestureRecognizer:tap] ;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -53,6 +57,10 @@
 {
     item = i ;
     [[self navigationItem] setTitle:[item itemName]] ;
+}
+- (void)dismissKeyboard
+{
+    [[self view] endEditing:YES] ;
 }
 
 @end
