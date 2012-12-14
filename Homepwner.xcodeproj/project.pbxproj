@@ -22,6 +22,8 @@
 		EF94DE021660956700A92B6F /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF94DE011660956700A92B6F /* HeaderView.xib */; };
 		EF94DE0A16671E7100A92B6F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF94DE0816671E7100A92B6F /* DetailViewController.m */; };
 		EF94DE0B16671E7100A92B6F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF94DE0916671E7100A92B6F /* DetailViewController.xib */; };
+		EFCF5F22167AE35C004ACE7A /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCF5F20167AE35B004ACE7A /* DateViewController.m */; };
+		EFCF5F23167AE35C004ACE7A /* DateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCF5F21167AE35C004ACE7A /* DateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,9 @@
 		EF94DE0716671E7100A92B6F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		EF94DE0816671E7100A92B6F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		EF94DE0916671E7100A92B6F /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		EFCF5F1F167AE35B004ACE7A /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
+		EFCF5F20167AE35B004ACE7A /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
+		EFCF5F21167AE35C004ACE7A /* DateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,9 @@
 				EF8F58B21655F8A80018282F /* ItemsViewController.h */,
 				EF94DE011660956700A92B6F /* HeaderView.xib */,
 				EF8F58B31655F8A80018282F /* ItemsViewController.m */,
+				EFCF5F1F167AE35B004ACE7A /* DateViewController.h */,
+				EFCF5F20167AE35B004ACE7A /* DateViewController.m */,
+				EFCF5F21167AE35C004ACE7A /* DateViewController.xib */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 				EF8F58AC1655F7160018282F /* Default-568h@2x.png in Resources */,
 				EF94DE021660956700A92B6F /* HeaderView.xib in Resources */,
 				EF94DE0B16671E7100A92B6F /* DetailViewController.xib in Resources */,
+				EFCF5F23167AE35C004ACE7A /* DateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +208,7 @@
 				EF1965A8165B2EF1009AEAC4 /* BNRItemStore.m in Sources */,
 				EF1965AB165B372E009AEAC4 /* BNRItem.m in Sources */,
 				EF94DE0A16671E7100A92B6F /* DetailViewController.m in Sources */,
+				EFCF5F22167AE35C004ACE7A /* DateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

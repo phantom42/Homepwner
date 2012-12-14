@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DateViewController.h"
 
 @class BNRItem ;
 
@@ -16,6 +17,8 @@
     __weak IBOutlet UITextField *serialNumberField;
     __weak IBOutlet UITextField *valueField;
     __weak IBOutlet UILabel *dateLabel;
+    
 }
 @property (nonatomic, strong) BNRItem *item ;
+- (IBAction)changeDate:(id)sender ;
 @end

@@ -62,5 +62,11 @@
 {
     [[self view] endEditing:YES] ;
 }
-
+- (IBAction)changeDate:(id)sender
+{
+    DateViewController *dvController = [[DateViewController alloc] init] ;
+    [dvController setItem:item] ;
+    [[self navigationController] pushViewController:dvController
+                                           animated:YES] ;
+}
 @end
