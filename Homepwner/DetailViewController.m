@@ -71,6 +71,9 @@
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init] ;
     
+    // silver challenge: this enables basic image editing (scale/crop)
+    [imagePicker setAllowsEditing:YES] ;
+    
     // if the device has a camera, we want to take a photo. otherwise just pick from the photo library
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera] ;
@@ -97,7 +100,8 @@
     }
     
     // get picked image from info dictionary
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage] ;
+    // silver challenge: change the key to the edited version of the image
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage] ;
     
     // create a cfuuid object - it knows how to create unique identifier strings
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault) ;
