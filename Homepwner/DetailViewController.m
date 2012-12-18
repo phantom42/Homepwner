@@ -82,6 +82,10 @@
     
     [self presentViewController:imagePicker animated:YES completion:nil] ;
 }
+
+- (IBAction)backgroundTapped:(id)sender {
+    [[self view] endEditing:YES] ;
+}
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *oldKey = [item imageKey] ;
@@ -119,5 +123,9 @@
     // take the image picker off the screen
     // you must call this dismiss method
     [self dismissViewControllerAnimated:YES completion:nil] ;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder] ;
+    return YES ;
 }
 @end
