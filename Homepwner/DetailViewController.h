@@ -23,4 +23,5 @@
 @property (nonatomic, strong) BNRItem *item ;
 - (IBAction)takePicture:(id)sender;
 - (IBAction)backgroundTapped:(id)sender;
+- (IBAction)deletePicture:(id)sender ;
 @end

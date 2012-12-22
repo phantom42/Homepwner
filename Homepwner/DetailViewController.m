@@ -85,6 +85,14 @@
     
     [self presentViewController:imagePicker animated:YES completion:nil] ;
 }
+// silver challenge
+-( IBAction)deletePicture:(id)sender
+{
+    // clear out the photo from memory
+    [[BNRImageStore sharedStore] deleteImageForKey:[item imageKey]];
+    // update hte image on the screen
+    [imageView setImage:nil] ;
+}
 
 - (IBAction)backgroundTapped:(id)sender {
     [[self view] endEditing:YES] ;
@@ -100,7 +108,7 @@
     }
     
     // get picked image from info dictionary
-    // silver challenge: change the key to the edited version of the image
+    // bronze challenge: change the key to the edited version of the image
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage] ;
     
     // create a cfuuid object - it knows how to create unique identifier strings
