@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "BNRItem.h"
 #import "BNRImageStore.h"
+#import "Crosshairs.h"
 
 @interface DetailViewController ()
 
@@ -77,6 +78,11 @@
     // if the device has a camera, we want to take a photo. otherwise just pick from the photo library
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera] ;
+        
+        // gold challenge
+        // set up Crosshair subview
+        Crosshairs *crossHairView = [[Crosshairs alloc] initWithFrame:CGRectMake(0, 0, imagePicker.view.bounds.size.width , imagePicker.view.bounds.size.height - 54)] ;
+        [imagePicker setCameraOverlayView:crossHairView] ;
     } else {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary] ;
     }
