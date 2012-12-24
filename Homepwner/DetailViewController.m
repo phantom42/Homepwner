@@ -76,6 +76,12 @@
 
 - (IBAction)takePicture:(id)sender
 {
+    if ([imagePickerPopover isPopoverVisible]) {
+        // if the popover is already up, get rid of it
+        [imagePickerPopover dismissPopoverAnimated:YES] ;
+        imagePickerPopover = nil ;
+        return ;
+    }
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init] ;
     
     // if the device has a camera, we want to take a photo. otherwise just pick from the photo library
@@ -87,7 +93,22 @@
 
     [imagePicker setDelegate:self] ;
     
-    [self presentViewController:imagePicker animated:YES completion:nil] ;
+    // place image picker on the screen
+    // check for ipad device before instantiating the popover controller
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        // create a new popover controller that will display the imagePicker
+        imagePickerPopover = [[UIPopoverController alloc] initWithContentViewController:imagePicker] ;
+        
+        [imagePickerPopover setDelegate:self] ;
+        
+        // display the popover controller; sender
+        // is the cmaera bar button item
+        [imagePickerPopover presentPopoverFromBarButtonItem:sender
+                                   permittedArrowDirections:UIPopoverArrowDirectionAny
+                                                   animated:YES] ;
+    } else {
+        [self presentViewController:imagePicker animated:YES completion:nil] ;
+    }
 }
 
 - (IBAction)backgroundTapped:(id)sender {
@@ -129,7 +150,15 @@
     
     // take the image picker off the screen
     // you must call this dismiss method
-    [self dismissViewControllerAnimated:YES completion:nil] ;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        // if on the phone, the image picker is presented modally. dismiss it
+        [self dismissViewControllerAnimated:YES completion:nil] ;
+    } else {
+        // if on the ipad, the image picker is popover. dismiss the popover
+        [imagePickerPopover dismissPopoverAnimated:YES] ;
+        imagePickerPopover = nil ;
+    }
+
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder] ;
@@ -139,5 +168,10 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll ;
+}
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSLog(@"User dismissed popover") ;
+    imagePickerPopover = nil ;
 }
 @end
