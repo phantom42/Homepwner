@@ -78,8 +78,13 @@
     }] ;
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailViewController] ;
-    
-    [navController setModalPresentationStyle:UIModalPresentationFormSheet] ;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [navController setModalPresentationStyle:UIModalPresentationFullScreen] ;
+        [navController setModalTransitionStyle:UIModalTransitionStylePartialCurl] ;
+    } else {
+        [navController setModalPresentationStyle:UIModalPresentationFormSheet] ;
+        [navController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal] ;
+    }
     
     [self presentViewController:navController
                        animated:YES
