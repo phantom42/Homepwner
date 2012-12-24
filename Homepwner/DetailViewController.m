@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "BNRItem.h"
 #import "BNRImageStore.h"
+#import "BNRItemStore.h"
 
 @interface DetailViewController ()
 
@@ -16,6 +17,35 @@
 
 @implementation DetailViewController
 @synthesize item ;
+- (id)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:@"DetailViewController" bundle:nil] ;
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
+                                         initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                         target:self
+                                         action:@selector(save:)] ;
+            [[self navigationItem] setRightBarButtonItem:doneItem] ;
+            
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc]
+                                           initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                           target:self
+                                           action:@selector(cancel:)] ;
+            [[self navigationItem] setLeftBarButtonItem:cancelItem] ;
+        }
+    }
+    return self ;
+}
+// this overrides this class's initializer, redirecting programmer to use the custom one
+// the custom one calls the superclass's initializer
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle
+{
+    @throw [NSException exceptionWithName:@"Wrong initializer"
+                                   reason:@"Use initForNewItem"
+                                 userInfo:nil] ;
+    return nil ;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad] ;
@@ -174,4 +204,18 @@
     NSLog(@"User dismissed popover") ;
     imagePickerPopover = nil ;
 }
+- (void)save:(id)sender
+{
+    [[self presentingViewController] dismissViewControllerAnimated:YES
+                                                        completion:nil] ;
+}
+- (void)cancel:(id)sender
+{
+    // if the user cancelled, then remove the BNRItem from the store
+    [[BNRItemStore sharedStore] removeItem:item] ;
+    
+    [[self presentingViewController] dismissViewControllerAnimated:YES
+                                                        completion:nil] ;
+}
+
 @end
