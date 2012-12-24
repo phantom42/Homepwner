@@ -19,7 +19,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad] ;
-    [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]] ;
+    
+    UIColor *clr = nil ;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        clr = [UIColor colorWithRed:0.875 green:0.88 blue:0.91 alpha:1] ;
+    } else {
+        clr = [UIColor groupTableViewBackgroundColor] ;
+    }
+    [[self view] setBackgroundColor:clr] ;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -127,5 +134,10 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder] ;
     return YES ;
+}
+// shouldAutorotateToInterfaceOrientation is deprecated with iOS 6. use this instead
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll ;
 }
 @end
